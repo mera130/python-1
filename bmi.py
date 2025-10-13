@@ -1,7 +1,7 @@
 h = float(input("enter your height(cm): "))
 w = float(input("enter your weight in kg:"))
 
-BMI = w / (h/100)*2
+BMI = w / (h/100)**2
 print("your BMI is:", BMI)
 
 if BMI < 18.5:
