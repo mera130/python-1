@@ -52,5 +52,23 @@ while running:
         x_change = (keys[pygame.K_RIGHT- pygame.K_LEFT])* movement_speed
         y_change = (keys[pygame.K_UP- pygame.K_DOWN])* movement_speed
         sprite1.move(x_change,y_change)
-        if sprite1.rect.colliderect(sprite2.rect):
-            
+    if sprite1.rect.colliderect(sprite2.rect):
+            all_sprites.remove(sprite2)
+            all_sprites.remove(sprite1)
+            won = True
+
+    # Drawing
+    screen.blit('mario.jpg', (0, 0))
+    all_sprites.draw(screen)
+
+    # Display win message
+    if won:
+        win_text = font.render("You win!", True, pygame.Color('black'))
+        screen.blit(win_text, ((screen_width - win_text.get_width()) // 2,
+                               (screen_height - win_text.get_height()) // 2))
+
+    pygame.display.flip()
+    clock.tick(90)
+
+pygame.quit()
+
