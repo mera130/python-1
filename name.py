@@ -10,7 +10,7 @@ def display():
     name = name_entry.get()
     global message
     message = "welcome to the application! \n today's date is: "
-    greet = 'hello "+name+" \n'
+    greet = 'hello '+name+' \n'
     text_box.insert(END, greet)
     text_box.insert(END, message)
     text_box.insert(END, date.today())
