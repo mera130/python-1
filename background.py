@@ -1,21 +1,21 @@
-import pygame
+import something
 
 # Initialize Pygame and screen dimensions
-pygame.init()
+something.init()
 SCREEN_WIDTH, SCREEN_HEIGHT = 500, 500
 
 # Initialize display surface and set title
-display_surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption('Adding image and background image')
+display_surface = something.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+something.display.set_caption('Adding image and background image')
 
 # Load and scale images
-background_image = pygame.transform.scale(
-    pygame.image.load('black.webp').convert(),
+background_image = something.transform.scale(
+    something.image.load('black.webp').convert(),
     (SCREEN_WIDTH, SCREEN_HEIGHT)
 )
 
-penguin_image = pygame.transform.scale(
-    pygame.image.load('jupiter.webp').convert_alpha(),
+penguin_image = something.transform.scale(
+    something.image.load('jupiter.webp').convert_alpha(),
     (200, 200)
 )
 
@@ -24,29 +24,29 @@ penguin_rect = penguin_image.get_rect(
 )
 
 # Initialize font and text
-font = pygame.font.Font(None, 36)
-text = font.render('jupiter is the biggest planet', True, pygame.Color('#C0B87A'))
+font = something.font.Font(None, 36)
+text = font.render('jupiter is the biggest planet', True, something.Color('#C0B87A'))
 text_rect = text.get_rect(
     center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 110)
 )
 
 def game_loop():
-    clock = pygame.time.Clock()
+    clock = something.time.Clock()
     running = True
 
     while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in something.event.get():
+            if event.type == something.QUIT:
                 running = False
 
         display_surface.blit(background_image, (0, 0))
         display_surface.blit(penguin_image, penguin_rect)
         display_surface.blit(text, text_rect)
 
-        pygame.display.flip()
+        something.display.flip()
         clock.tick(30)
 
-    pygame.quit()
+    something.quit()
 
 if __name__ == '__main__':
     game_loop()
